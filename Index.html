@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine Surprise 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #333;
+      overflow: hidden;
+    }
+    .screen {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      align-items: center;
+      justify-content: center;
+      background: #f8c8dc;
+      position: absolute;
+      top: 0; left: 0;
+      padding: 20px;
+    }
+    .screen.active { display: flex; }
+    .card {
+      background: #ffd6e8;
+      border-radius: 24px;
+      padding: 30px 25px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+      animation: pop .5s ease;
+    }
+    @keyframes pop { from { transform: scale(.8); opacity: 0;} to { transform: scale(1); opacity: 1;} }
+    h1, h2 { margin-top: 0; }
+    .emoji { font-size: 60px; margin-bottom: 10px; }
+    .btns { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
+    button {
+      border: none;
+      padding: 12px 22px;
+      font-size: 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .yes { background: #ff3b3b; color: #fff; }
+    .no { background: #3b6cff; color: #fff; }
+    .full-yes { width: 100%; font-size: 20px; padding: 16px; }
+    .back { background:#ff3b3b; color:#fff; margin-top:20px; }
+    .gifts { display:flex; gap:15px; justify-content:center; margin-top:20px; }
+    .gift { background:#fff; padding:15px; border-radius:16px; width:90px; cursor:pointer; }
+    .quiz button { width:100%; margin-top:10px; background:#ffd6e8; }
+    .quiz button.correct { background:#ff3b3b; color:#fff; }
+    .letter { background:#fff6cc; padding:20px; border-radius:12px; text-align:left; font-size:14px; }
+  </style>
+</head>
+<body>  <!-- Slide 1 -->  <div class="screen active" id="s1">
+    <div class="card">
+      <div class="emoji">🐻</div>
+      <h2>Will you be mine 🥺?</h2>
+      <p>Life is an incredible journey, and I want to spend every single second of it with you.</p>
+      <div class="btns">
+        <button class="yes" onclick="go('s2')">YES</button>
+        <button class="no" onclick="go('s2')">NO</button>
+      </div>
+    </div>
+  </div>  <!-- Slide 2 -->  <div class="screen" id="s2">
+    <div class="card">
+      <div class="emoji">🥹</div>
+      <h2>Think again 😭</h2>
+      <div class="btns">
+        <button class="yes" onclick="go('s3')">YES</button>
+        <button class="no" onclick="go('s3')">NO</button>
+      </div>
+    </div>
+  </div>  <!-- Slide 3 -->  <div class="screen" id="s3">
+    <div class="card">
+      <div class="emoji">😡</div>
+      <h2>Are you sure 😠?</h2>
+      <button class="yes full-yes" onclick="go('s4')">YES</button>
+    </div>
+  </div>  <!-- Slide 4 -->  <div class="screen" id="s4">
+    <div class="card">
+      <div class="emoji">🐱</div>
+      <h2>See This 🥺</h2>
+      <button class="yes full-yes" onclick="go('s5')">YES</button>
+    </div>
+  </div>  <!-- Slide 5 -->  <div class="screen" id="s5">
+    <div class="card">
+      <div class="emoji">💑</div>
+      <h2>Happy Valentine Day Baby! 💍</h2>
+      <p>Every second with you is a celebration. You make my world brighter 💖</p>
+      <button class="yes" onclick="go('s6')">See my gifts →</button>
+    </div>
+  </div>  <!-- Slide 6 -->  <div class="screen" id="s6">
+    <div class="card">
+      <h2>Something for You 🎁</h2>
+      <div class="gifts">
+        <div class="gift" onclick="go('s7')">Gift 1</div>
+        <div class="gift" onclick="go('s7')">Gift 2</div>
+        <div class="gift" onclick="go('s7')">Gift 3</div>
+      </div>
+    </div>
+  </div>  <!-- Slide 7 Quiz 1 -->  <div class="screen" id="s7">
+    <div class="card quiz">
+      <h2>Quiz for you 😚</h2>
+      <p>Who is the absolute boss in this relationship? 😏</p>
+      <button class="correct" onclick="go('s8')">Obviously You</button>
+      <button onclick="go('s8')">Me</button>
+      <button onclick="go('s8')">My Mom</button>
+    </div>
+  </div>  <!-- Slide 8 Quiz 2 -->  <div class="screen" id="s8">
+    <div class="card quiz">
+      <h2>Quiz for you 😚</h2>
+      <p>What fights a lot in this relationship? 😜</p>
+      <button class="correct" onclick="go('s9')">Always You</button>
+      <button onclick="go('s9')">No one</button>
+      <button onclick="go('s9')">Me</button>
+    </div>
+  </div>  <!-- Slide 9 Result -->  <div class="screen" id="s9">
+    <div class="card">
+      <h2>Yay! 🎉</h2>
+      <p>You passed the test! You really love me 💕</p>
+      <button class="yes" onclick="go('s10')">Next →</button>
+    </div>
+  </div>  <!-- Slide 10 Letter -->  <div class="screen" id="s10">
+    <div class="card">
+      <h2>A Letter For You 🥺</h2>
+      <div class="letter">
+        <p>My Baby,</p>
+        <p>Thank you for being my person. I want to hold your hand through every season of life. You are my home, my everything, and I love you so so much.</p>
+        <p>No one can replace you in my heart. You will always be my number one.</p>
+        <p>Forever yours ❤️</p>
+      </div>
+    </div>
+  </div><script>
+  function go(id){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script></body>
+</html>
